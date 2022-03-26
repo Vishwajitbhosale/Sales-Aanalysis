@@ -1,0 +1,26 @@
+use foodmart;
+
+create table if not exists temp_Sales(store int,dept int,week_dates string,week_sales double,weakend boolean)row format delimited fields terminated by ',' stored as textfile TBLPROPERTIES('skip.header.line.count' = '1');
+
+
+load data inpath '/Sales/sales.csv' into table temp_Sales;
+
+select * from temp_Sales limit 5;
+
+create table if not exists temp_Featuresdataset(store int,week_dates string,temprature float,fuel_price float,MarkDown1 varchar(10),MarkDown2 varchar(10),MarkDown3 varchar(10),MarkDown4 varchar(10),MarkDown5 varchar(10),CPI double,unemployment double,isHoliday boolean)row format delimited fields terminated by ',' stored as textfile TBLPROPERTIES('skip.header.line.count' = '1');
+
+load data inpath '/Featuresdataset/Featuresdataset.csv' into table temp_Featuresdataset;
+
+select * from temp_Featuresdataset limit 5;
+
+create table if not exists temp_StoresDataSet(store int,type varchar(5),size int)row format delimited fields terminated by ',' stored as textfile TBLPROPERTIES('skip.header.line.count' = '1');
+
+load data inpath '/StoresDataSet/StoresDataSet.csv' into table temp_StoresDataSet;
+
+select * from temp_StoresDataSet limit 5;
+
+Create table if not exists Sales(Store int,dept int,week_dates string,week_sales double)row format delimited fields terminated by ',' stored as textfile;
+
+insert into table Sales select store,dept,week_dates,week_sales from temp_Sales;
+
+select * from Sales limit 5;

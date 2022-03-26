@@ -1,0 +1,14 @@
+hadoop fs -mkdir /Sales
+hadoop fs -put /home/cloudera/Downloads/sales.csv /Sales
+
+echo "Sales loaded"
+
+hadoop fs -mkdir /StoresDataSet
+hadoop fs -put /home/cloudera/Downloads/StoresDataSet.csv /StoresDataSet
+
+echo "StoresDataSet loaded"
+
+hadoop fs -mkdir /Featuresdataset 
+hadoop fs -put /home/cloudera/Downloads/Featuresdataset.csv /Featuresdataset
+
+echo "Featuresdataset loaded"

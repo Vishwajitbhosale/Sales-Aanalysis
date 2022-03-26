@@ -1,0 +1,7 @@
+use foodmart;
+
+create table yearlySales(store int,dept int,year varchar(10),sales double)row format delimited fields terminated by ',' stored as textfile;
+
+insert into table yearlySales select store,dept,cast(substr(week_dates,7,4) as varchar(10)) year,ceil(sum(week_sales)) sales from Sales group by store,dept,substr(week_dates,7,4);
+ 
+select * from yearlySales limit 6;
