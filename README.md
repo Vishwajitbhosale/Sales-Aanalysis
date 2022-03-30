@@ -13,6 +13,9 @@ Features
 Contains additional data related to the store, department, and regional activity for the given dates.
 
 
+![Database](https://user-images.githubusercontent.com/92929807/160755491-59b3f97b-ee6d-4874-b9a1-6cf03075e14f.jpg)
+
+
 The Task
 1.
 Data exploration
